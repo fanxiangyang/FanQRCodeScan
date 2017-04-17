@@ -1,0 +1,541 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6620A2901EA49BD200A755B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6620A28F1EA49BD200A755B1 /* main.m */; };
+		6620A2931EA49BD200A755B1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6620A2921EA49BD200A755B1 /* AppDelegate.m */; };
+		6620A2961EA49BD200A755B1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6620A2951EA49BD200A755B1 /* ViewController.m */; };
+		6620A2991EA49BD200A755B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6620A2971EA49BD200A755B1 /* Main.storyboard */; };
+		6620A29B1EA49BD200A755B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6620A29A1EA49BD200A755B1 /* Assets.xcassets */; };
+		6620A29E1EA49BD200A755B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6620A29C1EA49BD200A755B1 /* LaunchScreen.storyboard */; };
+		6620A2A91EA49BD200A755B1 /* FanQRCodeScanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6620A2A81EA49BD200A755B1 /* FanQRCodeScanTests.m */; };
+		6620A2B41EA49BD200A755B1 /* FanQRCodeScanUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6620A2B31EA49BD200A755B1 /* FanQRCodeScanUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6620A2A51EA49BD200A755B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6620A2831EA49BD200A755B1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6620A28A1EA49BD200A755B1;
+			remoteInfo = FanQRCodeScan;
+		};
+		6620A2B01EA49BD200A755B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6620A2831EA49BD200A755B1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6620A28A1EA49BD200A755B1;
+			remoteInfo = FanQRCodeScan;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6620A28B1EA49BD200A755B1 /* FanQRCodeScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FanQRCodeScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6620A28F1EA49BD200A755B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6620A2911EA49BD200A755B1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6620A2921EA49BD200A755B1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6620A2941EA49BD200A755B1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		6620A2951EA49BD200A755B1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6620A2981EA49BD200A755B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6620A29A1EA49BD200A755B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6620A29D1EA49BD200A755B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6620A29F1EA49BD200A755B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6620A2A41EA49BD200A755B1 /* FanQRCodeScanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FanQRCodeScanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6620A2A81EA49BD200A755B1 /* FanQRCodeScanTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FanQRCodeScanTests.m; sourceTree = "<group>"; };
+		6620A2AA1EA49BD200A755B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6620A2AF1EA49BD200A755B1 /* FanQRCodeScanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FanQRCodeScanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6620A2B31EA49BD200A755B1 /* FanQRCodeScanUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FanQRCodeScanUITests.m; sourceTree = "<group>"; };
+		6620A2B51EA49BD200A755B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6620A2881EA49BD200A755B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6620A2A11EA49BD200A755B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6620A2AC1EA49BD200A755B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6620A2821EA49BD200A755B1 = {
+			isa = PBXGroup;
+			children = (
+				6620A28D1EA49BD200A755B1 /* FanQRCodeScan */,
+				6620A2A71EA49BD200A755B1 /* FanQRCodeScanTests */,
+				6620A2B21EA49BD200A755B1 /* FanQRCodeScanUITests */,
+				6620A28C1EA49BD200A755B1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6620A28C1EA49BD200A755B1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6620A28B1EA49BD200A755B1 /* FanQRCodeScan.app */,
+				6620A2A41EA49BD200A755B1 /* FanQRCodeScanTests.xctest */,
+				6620A2AF1EA49BD200A755B1 /* FanQRCodeScanUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6620A28D1EA49BD200A755B1 /* FanQRCodeScan */ = {
+			isa = PBXGroup;
+			children = (
+				6620A2911EA49BD200A755B1 /* AppDelegate.h */,
+				6620A2921EA49BD200A755B1 /* AppDelegate.m */,
+				6620A2941EA49BD200A755B1 /* ViewController.h */,
+				6620A2951EA49BD200A755B1 /* ViewController.m */,
+				6620A2971EA49BD200A755B1 /* Main.storyboard */,
+				6620A29A1EA49BD200A755B1 /* Assets.xcassets */,
+				6620A29C1EA49BD200A755B1 /* LaunchScreen.storyboard */,
+				6620A29F1EA49BD200A755B1 /* Info.plist */,
+				6620A28E1EA49BD200A755B1 /* Supporting Files */,
+			);
+			path = FanQRCodeScan;
+			sourceTree = "<group>";
+		};
+		6620A28E1EA49BD200A755B1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6620A28F1EA49BD200A755B1 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6620A2A71EA49BD200A755B1 /* FanQRCodeScanTests */ = {
+			isa = PBXGroup;
+			children = (
+				6620A2A81EA49BD200A755B1 /* FanQRCodeScanTests.m */,
+				6620A2AA1EA49BD200A755B1 /* Info.plist */,
+			);
+			path = FanQRCodeScanTests;
+			sourceTree = "<group>";
+		};
+		6620A2B21EA49BD200A755B1 /* FanQRCodeScanUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6620A2B31EA49BD200A755B1 /* FanQRCodeScanUITests.m */,
+				6620A2B51EA49BD200A755B1 /* Info.plist */,
+			);
+			path = FanQRCodeScanUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6620A28A1EA49BD200A755B1 /* FanQRCodeScan */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6620A2B81EA49BD200A755B1 /* Build configuration list for PBXNativeTarget "FanQRCodeScan" */;
+			buildPhases = (
+				6620A2871EA49BD200A755B1 /* Sources */,
+				6620A2881EA49BD200A755B1 /* Frameworks */,
+				6620A2891EA49BD200A755B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FanQRCodeScan;
+			productName = FanQRCodeScan;
+			productReference = 6620A28B1EA49BD200A755B1 /* FanQRCodeScan.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6620A2A31EA49BD200A755B1 /* FanQRCodeScanTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6620A2BB1EA49BD200A755B1 /* Build configuration list for PBXNativeTarget "FanQRCodeScanTests" */;
+			buildPhases = (
+				6620A2A01EA49BD200A755B1 /* Sources */,
+				6620A2A11EA49BD200A755B1 /* Frameworks */,
+				6620A2A21EA49BD200A755B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6620A2A61EA49BD200A755B1 /* PBXTargetDependency */,
+			);
+			name = FanQRCodeScanTests;
+			productName = FanQRCodeScanTests;
+			productReference = 6620A2A41EA49BD200A755B1 /* FanQRCodeScanTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6620A2AE1EA49BD200A755B1 /* FanQRCodeScanUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6620A2BE1EA49BD200A755B1 /* Build configuration list for PBXNativeTarget "FanQRCodeScanUITests" */;
+			buildPhases = (
+				6620A2AB1EA49BD200A755B1 /* Sources */,
+				6620A2AC1EA49BD200A755B1 /* Frameworks */,
+				6620A2AD1EA49BD200A755B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6620A2B11EA49BD200A755B1 /* PBXTargetDependency */,
+			);
+			name = FanQRCodeScanUITests;
+			productName = FanQRCodeScanUITests;
+			productReference = 6620A2AF1EA49BD200A755B1 /* FanQRCodeScanUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6620A2831EA49BD200A755B1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "凡向阳";
+				TargetAttributes = {
+					6620A28A1EA49BD200A755B1 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = NW3X9NZ9UP;
+						ProvisioningStyle = Automatic;
+					};
+					6620A2A31EA49BD200A755B1 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = NW3X9NZ9UP;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 6620A28A1EA49BD200A755B1;
+					};
+					6620A2AE1EA49BD200A755B1 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = NW3X9NZ9UP;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 6620A28A1EA49BD200A755B1;
+					};
+				};
+			};
+			buildConfigurationList = 6620A2861EA49BD200A755B1 /* Build configuration list for PBXProject "FanQRCodeScan" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6620A2821EA49BD200A755B1;
+			productRefGroup = 6620A28C1EA49BD200A755B1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6620A28A1EA49BD200A755B1 /* FanQRCodeScan */,
+				6620A2A31EA49BD200A755B1 /* FanQRCodeScanTests */,
+				6620A2AE1EA49BD200A755B1 /* FanQRCodeScanUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6620A2891EA49BD200A755B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6620A29E1EA49BD200A755B1 /* LaunchScreen.storyboard in Resources */,
+				6620A29B1EA49BD200A755B1 /* Assets.xcassets in Resources */,
+				6620A2991EA49BD200A755B1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6620A2A21EA49BD200A755B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6620A2AD1EA49BD200A755B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6620A2871EA49BD200A755B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6620A2961EA49BD200A755B1 /* ViewController.m in Sources */,
+				6620A2931EA49BD200A755B1 /* AppDelegate.m in Sources */,
+				6620A2901EA49BD200A755B1 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6620A2A01EA49BD200A755B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6620A2A91EA49BD200A755B1 /* FanQRCodeScanTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6620A2AB1EA49BD200A755B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6620A2B41EA49BD200A755B1 /* FanQRCodeScanUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6620A2A61EA49BD200A755B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6620A28A1EA49BD200A755B1 /* FanQRCodeScan */;
+			targetProxy = 6620A2A51EA49BD200A755B1 /* PBXContainerItemProxy */;
+		};
+		6620A2B11EA49BD200A755B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6620A28A1EA49BD200A755B1 /* FanQRCodeScan */;
+			targetProxy = 6620A2B01EA49BD200A755B1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6620A2971EA49BD200A755B1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6620A2981EA49BD200A755B1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6620A29C1EA49BD200A755B1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6620A29D1EA49BD200A755B1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6620A2B61EA49BD200A755B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6620A2B71EA49BD200A755B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6620A2B91EA49BD200A755B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = NW3X9NZ9UP;
+				INFOPLIST_FILE = FanQRCodeScan/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fan.FanQRCodeScan;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6620A2BA1EA49BD200A755B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = NW3X9NZ9UP;
+				INFOPLIST_FILE = FanQRCodeScan/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fan.FanQRCodeScan;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		6620A2BC1EA49BD200A755B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = NW3X9NZ9UP;
+				INFOPLIST_FILE = FanQRCodeScanTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fan.FanQRCodeScanTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FanQRCodeScan.app/FanQRCodeScan";
+			};
+			name = Debug;
+		};
+		6620A2BD1EA49BD200A755B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = NW3X9NZ9UP;
+				INFOPLIST_FILE = FanQRCodeScanTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fan.FanQRCodeScanTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FanQRCodeScan.app/FanQRCodeScan";
+			};
+			name = Release;
+		};
+		6620A2BF1EA49BD200A755B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = NW3X9NZ9UP;
+				INFOPLIST_FILE = FanQRCodeScanUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fan.FanQRCodeScanUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = FanQRCodeScan;
+			};
+			name = Debug;
+		};
+		6620A2C01EA49BD200A755B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = NW3X9NZ9UP;
+				INFOPLIST_FILE = FanQRCodeScanUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fan.FanQRCodeScanUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = FanQRCodeScan;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6620A2861EA49BD200A755B1 /* Build configuration list for PBXProject "FanQRCodeScan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6620A2B61EA49BD200A755B1 /* Debug */,
+				6620A2B71EA49BD200A755B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6620A2B81EA49BD200A755B1 /* Build configuration list for PBXNativeTarget "FanQRCodeScan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6620A2B91EA49BD200A755B1 /* Debug */,
+				6620A2BA1EA49BD200A755B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6620A2BB1EA49BD200A755B1 /* Build configuration list for PBXNativeTarget "FanQRCodeScanTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6620A2BC1EA49BD200A755B1 /* Debug */,
+				6620A2BD1EA49BD200A755B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6620A2BE1EA49BD200A755B1 /* Build configuration list for PBXNativeTarget "FanQRCodeScanUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6620A2BF1EA49BD200A755B1 /* Debug */,
+				6620A2C01EA49BD200A755B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6620A2831EA49BD200A755B1 /* Project object */;
+}
