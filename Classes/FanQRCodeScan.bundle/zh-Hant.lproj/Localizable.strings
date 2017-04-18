@@ -1,0 +1,8 @@
+"FanQRCodeScan"    =   "掃一掃";
+"FanQRCodeConfirm" = "確定";
+"FanQRCodeWarmTips" = "溫馨提示";
+"FanQRCodeProhibitCameraPermission"  =   "您禁止了該攝像機的權限，請在設置界面開啟！";
+"FanQRCodeOpenFlash"    =   "該設備不能打開閃光燈!";
+"FanQRCodePhotoLibrary"    =   "相冊";
+"FanQRCodeFlash"    =   "手電筒";
+"FanQRCodeScanTips"    =   "將取景框對準二維碼，既可自動掃描";

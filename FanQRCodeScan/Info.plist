@@ -12,6 +12,8 @@
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundleDisplayName</key>
+	<string>FanQRCode</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -41,5 +43,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>This App requires your consent to open your camera</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This App requires your consent to open your microphone</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This App requires your consent to read the media database</string>
 </dict>
 </plist>

@@ -15,6 +15,9 @@
 		6620A29E1EA49BD200A755B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6620A29C1EA49BD200A755B1 /* LaunchScreen.storyboard */; };
 		6620A2A91EA49BD200A755B1 /* FanQRCodeScanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6620A2A81EA49BD200A755B1 /* FanQRCodeScanTests.m */; };
 		6620A2B41EA49BD200A755B1 /* FanQRCodeScanUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6620A2B31EA49BD200A755B1 /* FanQRCodeScanUITests.m */; };
+		6620A2CB1EA49FD700A755B1 /* NSBundle+FanQRCodeScan.m in Sources */ = {isa = PBXBuildFile; fileRef = 6620A2CA1EA49FD700A755B1 /* NSBundle+FanQRCodeScan.m */; };
+		6620A2CD1EA4A4BC00A755B1 /* FanQRCodeScan.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6620A2CC1EA4A4BC00A755B1 /* FanQRCodeScan.bundle */; };
+		6620A2D01EA4A5D500A755B1 /* FanQRCodeScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6620A2CF1EA4A5D500A755B1 /* FanQRCodeScanViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,12 @@
 		6620A2AF1EA49BD200A755B1 /* FanQRCodeScanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FanQRCodeScanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6620A2B31EA49BD200A755B1 /* FanQRCodeScanUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FanQRCodeScanUITests.m; sourceTree = "<group>"; };
 		6620A2B51EA49BD200A755B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6620A2C71EA49F1600A755B1 /* FanQRCodeScan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FanQRCodeScan.h; sourceTree = "<group>"; };
+		6620A2C91EA49FD700A755B1 /* NSBundle+FanQRCodeScan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+FanQRCodeScan.h"; sourceTree = "<group>"; };
+		6620A2CA1EA49FD700A755B1 /* NSBundle+FanQRCodeScan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+FanQRCodeScan.m"; sourceTree = "<group>"; };
+		6620A2CC1EA4A4BC00A755B1 /* FanQRCodeScan.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FanQRCodeScan.bundle; sourceTree = "<group>"; };
+		6620A2CE1EA4A5D500A755B1 /* FanQRCodeScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FanQRCodeScanViewController.h; sourceTree = "<group>"; };
+		6620A2CF1EA4A5D500A755B1 /* FanQRCodeScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FanQRCodeScanViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +90,7 @@
 		6620A2821EA49BD200A755B1 = {
 			isa = PBXGroup;
 			children = (
+				6620A2C11EA49CAB00A755B1 /* Classes */,
 				6620A28D1EA49BD200A755B1 /* FanQRCodeScan */,
 				6620A2A71EA49BD200A755B1 /* FanQRCodeScanTests */,
 				6620A2B21EA49BD200A755B1 /* FanQRCodeScanUITests */,
@@ -138,6 +148,19 @@
 				6620A2B51EA49BD200A755B1 /* Info.plist */,
 			);
 			path = FanQRCodeScanUITests;
+			sourceTree = "<group>";
+		};
+		6620A2C11EA49CAB00A755B1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6620A2CC1EA4A4BC00A755B1 /* FanQRCodeScan.bundle */,
+				6620A2C71EA49F1600A755B1 /* FanQRCodeScan.h */,
+				6620A2C91EA49FD700A755B1 /* NSBundle+FanQRCodeScan.h */,
+				6620A2CA1EA49FD700A755B1 /* NSBundle+FanQRCodeScan.m */,
+				6620A2CE1EA4A5D500A755B1 /* FanQRCodeScanViewController.h */,
+				6620A2CF1EA4A5D500A755B1 /* FanQRCodeScanViewController.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +272,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6620A2CD1EA4A4BC00A755B1 /* FanQRCodeScan.bundle in Resources */,
 				6620A29E1EA49BD200A755B1 /* LaunchScreen.storyboard in Resources */,
 				6620A29B1EA49BD200A755B1 /* Assets.xcassets in Resources */,
 				6620A2991EA49BD200A755B1 /* Main.storyboard in Resources */,
@@ -278,7 +302,9 @@
 			files = (
 				6620A2961EA49BD200A755B1 /* ViewController.m in Sources */,
 				6620A2931EA49BD200A755B1 /* AppDelegate.m in Sources */,
+				6620A2D01EA4A5D500A755B1 /* FanQRCodeScanViewController.m in Sources */,
 				6620A2901EA49BD200A755B1 /* main.m in Sources */,
+				6620A2CB1EA49FD700A755B1 /* NSBundle+FanQRCodeScan.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +457,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NW3X9NZ9UP;
 				INFOPLIST_FILE = FanQRCodeScan/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fan.FanQRCodeScan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -443,6 +470,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NW3X9NZ9UP;
 				INFOPLIST_FILE = FanQRCodeScan/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fan.FanQRCodeScan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
