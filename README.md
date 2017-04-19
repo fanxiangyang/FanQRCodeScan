@@ -1,8 +1,7 @@
 # FanQRCodeScan（iOS8+）
 ##### 系统自带二维码条形码的扫描和生成 
 
-<img src="https://github.com/fanxiangyang/FanQRCodeScan/blob/master/Document/qrcode.png?raw=true" width="320">
-<img src="https://github.com/fanxiangyang/FanQRCodeScan/blob/master/Document/scan.png?raw=true" width="320">
+<img src="https://github.com/fanxiangyang/FanQRCodeScan/blob/master/Document/qrcode.png?raw=true" width="320">       <img src="https://github.com/fanxiangyang/FanQRCodeScan/blob/master/Document/scan.png?raw=true" width="320">
 
 
 ###  功能介绍
@@ -113,4 +112,4 @@ UIImage *image=[FanQRCodeScanViewController fan_generateBarImageWithCode:textFie
 Like(喜欢)
 ==============
 #### 有问题请直接在文章下面留言,喜欢就给个Star(小星星)吧！ 
-#### Email:fqsyfan@gmail.com
+#### Email:<fqsyfan@gmail.com>

@@ -39,9 +39,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self openCapture];
-    
+    BOOL isOpen = [self openCapture];
     [self configUI];
+
+    if (!isOpen) {
+        [self fan_stopScan];
+    }
 
 }
 
@@ -237,10 +240,12 @@
 -(BOOL)openCapture{
     AVAuthorizationStatus deviceStatus=[AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
     if (deviceStatus == AVAuthorizationStatusRestricted||deviceStatus==AVAuthorizationStatusDenied) {
-        [self fan_showAlertWithMessage:[NSBundle fan_localizedStringForKey:@"FanQRCodeProhibitCameraPermission"]];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self fan_showAlertWithMessage:[NSBundle fan_localizedStringForKey:@"FanQRCodeProhibitCameraPermission"]];
+        });
         return NO;
     }
-//    [self fan_showAlertWithMessage:@"你机制了相机权限"];
+   
     self.captureSession = [[AVCaptureSession alloc]init];
     //摄像头设备
     AVCaptureDevice *captureDevice=[AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
@@ -305,8 +310,6 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-//    [_line.layer removeAnimationForKey:@"rock.Y"];
-//    _line.frame = CGRectMake(0, 0, kHeight_QRRect, 2);
     UIImage *image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
     [self dismissViewControllerAnimated:YES completion:^{
         [self fan_decodeImage_8_0:image];
@@ -327,7 +330,7 @@
     }
     CIImage *ciImage=[CIImage imageWithCGImage:image.CGImage];
     CIContext *context = [CIContext contextWithOptions:nil];
-    CIDetector *detector=[CIDetector detectorOfType:CIDetectorTypeText context:context options:@{CIDetectorAccuracy:CIDetectorAccuracyHigh}];
+    CIDetector *detector=[CIDetector detectorOfType:CIDetectorTypeQRCode context:context options:@{CIDetectorAccuracy:CIDetectorAccuracyHigh}];
     NSArray *features=[detector featuresInImage:ciImage];
     if (features.count>0) {
         CIFeature *feature = [features firstObject];
