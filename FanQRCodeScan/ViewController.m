@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "FanQRCodeScan.h"
 #import <Photos/Photos.h>
+#import "FanWebViewController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -17,6 +18,9 @@
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
 @property (nonatomic, strong) UIImageView *qrcodeImageView;
+
+
+@property (nonatomic, strong) NSString *qrcode;
 
 @end
 
@@ -129,18 +133,35 @@
         }
         
     }];
-    qrCoreVC.themColor=[UIColor redColor];
-    qrCoreVC.scanColor=[UIColor yellowColor];
+    qrCoreVC.themColor=[UIColor yellowColor];
+    qrCoreVC.scanColor=[UIColor greenColor];
     [self presentViewController:qrCoreVC animated:YES completion:nil];
     
 }
 //根据不同的提示信息，创建警告框
 -(void)fan_showAlertWithTitle:(NSString *)title message:(NSString *)message{
-    
+    NSString *confirm=[NSBundle fan_localizedStringForKey:@"FanQRCodeConfirm"];
+    if ([message hasPrefix:@"http"]) {
+        confirm =@"打开链接";
+    }
     UIAlertController *act=[UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    [act addAction:[UIAlertAction actionWithTitle:[NSBundle fan_localizedStringForKey:@"FanQRCodeConfirm"] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [act addAction:[UIAlertAction actionWithTitle:confirm style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        if ([message hasPrefix:@"http"]) {
+            FanWebViewController *web=[[FanWebViewController alloc]init];
+            web.fanQRURL=message;
+            web.hidesBottomBarWhenPushed=YES;
+            UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:web];
+            
+            [self presentViewController:nav animated:YES completion:^{
+                
+            }];
+        }
         
     }]];
+    [act addAction:[UIAlertAction actionWithTitle:[NSBundle fan_localizedStringForKey:@"FanQRCodeCancel"] style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    //UIAlertControllerStyleActionSheet状态需要用
 //    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
 //        [act setModalPresentationStyle:UIModalPresentationPopover];
 //        UIPopoverPresentationController *popPresenter = [act popoverPresentationController];

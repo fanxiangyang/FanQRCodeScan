@@ -49,5 +49,10 @@
 	<string>This App requires your consent to open your microphone</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This App requires your consent to read the media database</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

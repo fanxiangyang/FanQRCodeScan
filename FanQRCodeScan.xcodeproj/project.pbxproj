@@ -18,6 +18,7 @@
 		6620A2CB1EA49FD700A755B1 /* NSBundle+FanQRCodeScan.m in Sources */ = {isa = PBXBuildFile; fileRef = 6620A2CA1EA49FD700A755B1 /* NSBundle+FanQRCodeScan.m */; };
 		6620A2CD1EA4A4BC00A755B1 /* FanQRCodeScan.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6620A2CC1EA4A4BC00A755B1 /* FanQRCodeScan.bundle */; };
 		6620A2D01EA4A5D500A755B1 /* FanQRCodeScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6620A2CF1EA4A5D500A755B1 /* FanQRCodeScanViewController.m */; };
+		666278941ECD6DA300C04FD3 /* FanWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 666278931ECD6DA300C04FD3 /* FanWebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		6620A2CC1EA4A4BC00A755B1 /* FanQRCodeScan.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FanQRCodeScan.bundle; sourceTree = "<group>"; };
 		6620A2CE1EA4A5D500A755B1 /* FanQRCodeScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FanQRCodeScanViewController.h; sourceTree = "<group>"; };
 		6620A2CF1EA4A5D500A755B1 /* FanQRCodeScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FanQRCodeScanViewController.m; sourceTree = "<group>"; };
+		666278921ECD6DA300C04FD3 /* FanWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FanWebViewController.h; sourceTree = "<group>"; };
+		666278931ECD6DA300C04FD3 /* FanWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FanWebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,8 @@
 				6620A2921EA49BD200A755B1 /* AppDelegate.m */,
 				6620A2941EA49BD200A755B1 /* ViewController.h */,
 				6620A2951EA49BD200A755B1 /* ViewController.m */,
+				666278921ECD6DA300C04FD3 /* FanWebViewController.h */,
+				666278931ECD6DA300C04FD3 /* FanWebViewController.m */,
 				6620A2971EA49BD200A755B1 /* Main.storyboard */,
 				6620A29A1EA49BD200A755B1 /* Assets.xcassets */,
 				6620A29C1EA49BD200A755B1 /* LaunchScreen.storyboard */,
@@ -301,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6620A2961EA49BD200A755B1 /* ViewController.m in Sources */,
+				666278941ECD6DA300C04FD3 /* FanWebViewController.m in Sources */,
 				6620A2931EA49BD200A755B1 /* AppDelegate.m in Sources */,
 				6620A2D01EA4A5D500A755B1 /* FanQRCodeScanViewController.m in Sources */,
 				6620A2901EA49BD200A755B1 /* main.m in Sources */,
@@ -546,6 +552,7 @@
 				6620A2BA1EA49BD200A755B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6620A2BB1EA49BD200A755B1 /* Build configuration list for PBXNativeTarget "FanQRCodeScanTests" */ = {
 			isa = XCConfigurationList;
@@ -554,6 +561,7 @@
 				6620A2BD1EA49BD200A755B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6620A2BE1EA49BD200A755B1 /* Build configuration list for PBXNativeTarget "FanQRCodeScanUITests" */ = {
 			isa = XCConfigurationList;
@@ -562,6 +570,7 @@
 				6620A2C01EA49BD200A755B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
