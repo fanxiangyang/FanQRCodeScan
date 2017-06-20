@@ -10,6 +10,7 @@
 #import "FanQRCodeScan.h"
 #import <Photos/Photos.h>
 #import "FanWebViewController.h"
+#import "FanCommonHead.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -47,7 +48,7 @@
     
     _qrcodeImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kWidth_QR, kHeight_QR-44*3-80)];
     _qrcodeImageView.backgroundColor=[UIColor lightGrayColor];
-    _qrcodeImageView.contentMode=UIViewContentModeCenter;
+    _qrcodeImageView.contentMode=UIViewContentModeScaleAspectFit;
     _qrcodeImageView.userInteractionEnabled=YES;
     _tableView.tableFooterView=_qrcodeImageView;
     
@@ -183,7 +184,9 @@
             UIImage *image;
             if (tag==0) {
                 //二维码
-                image=[FanQRCodeScanViewController fan_qrCodeImageWithText:textField.text size:CGSizeMake(300, 300)];
+                image=[FanQRCodeScanViewController fan_qrCodeImageWithText:textField.text size:CGSizeMake(1024, 1024)];
+//                image=[FanQRCodeScanViewController fan_qrCodeImageWithText:textField.text size:CGSizeMake(1024, 1024) color:[UIColor blackColor] bgColor:FanColor(194, 216, 238, 1)];
+
                 //https://github.com/fanxiangyang/FanQRCodeScan
             }else if(tag==1){
                 //条形码
