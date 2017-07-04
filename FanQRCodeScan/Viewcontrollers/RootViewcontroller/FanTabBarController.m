@@ -22,7 +22,8 @@
     for (UITabBarItem *item in itmes) {
         UIImage *image1=[item.selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         item.selectedImage=image1;
-//        item.image=image1;
+        UIImage *image2=[item.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        item.image=image2;
     }
 
 }

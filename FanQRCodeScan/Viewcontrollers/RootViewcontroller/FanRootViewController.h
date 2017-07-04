@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIViewController+RootClass.h"
 
-@interface RootViewController : UIViewController
+@interface FanRootViewController : UIViewController
 -(void)addBackgroundImage:(NSString *)imageName;
 -(void)addBackButton;
-
+-(UIBarButtonItem *)creatUIBarButtonItemImageName:(NSString *)imageName selector:(SEL)selector;
 @end

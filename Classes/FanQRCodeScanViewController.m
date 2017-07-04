@@ -272,12 +272,12 @@
     //二维码：AVMetadataObjectTypeQRCode,
     //条形码：AVMetadataObjectTypeEAN13Code,AVMetadataObjectTypeEAN8Code,AVMetadataObjectTypeCode128Code
 //    captureOutput.metadataObjectTypes =@[AVMetadataObjectTypeQRCode];
-    captureOutput.metadataObjectTypes =@[AVMetadataObjectTypeQRCode,
-                                   AVMetadataObjectTypeEAN13Code,
-                                   AVMetadataObjectTypeEAN8Code,
+    captureOutput.metadataObjectTypes =@[AVMetadataObjectTypeQRCode,//二维码
+                                   AVMetadataObjectTypeEAN13Code,//13位的条形码包含UPC-A，如果第一位是0删除
+                                   AVMetadataObjectTypeEAN8Code,//8位的条形码
                                    AVMetadataObjectTypeCode128Code];
     //AVMetadataObjectTypeCode39Code,AVMetadataObjectTypeCode93Code
-    
+    //org.gs1.EAN-13======org.iso.QRCode
     
     //设置预览层信息
     if (!self.captureVideoPreviewLayer) {
@@ -299,7 +299,7 @@
     {
         AVMetadataMachineReadableCodeObject * metadataObject = [metadataObjects objectAtIndex:0];
         if (self.qrCodeScanResultBlock) {
-            self.qrCodeScanResultBlock(metadataObject.stringValue,YES);
+            self.qrCodeScanResultBlock(metadataObject.stringValue,metadataObject.type,YES);
         }
     }
     
@@ -337,10 +337,10 @@
         if ([feature isKindOfClass:[CIQRCodeFeature class]]) {
             CIQRCodeFeature *qrf=(CIQRCodeFeature *)feature;
             [self.captureSession stopRunning];
-            self.qrCodeScanResultBlock(qrf.messageString,YES);
+            self.qrCodeScanResultBlock(qrf.messageString,AVMetadataObjectTypeQRCode,YES);
         }
     }else{
-        self.qrCodeScanResultBlock(@"error：Parsing failure ",NO);
+        self.qrCodeScanResultBlock(@"error：Parsing failure ",AVMetadataObjectTypeQRCode,NO);
     }
     [self pressCancelButton];
 }
@@ -415,6 +415,9 @@
     CGContextSetInterpolationQuality(context, kCGInterpolationNone);
     CGContextScaleCTM(context, 1.0, -1.0);
     CGContextDrawImage(context, CGContextGetClipBoundingBox(context), cgImage);
+    if (cgImage==nil) {
+        return nil;
+    }
     UIImage *codeImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     CGImageRelease(cgImage);
@@ -444,6 +447,9 @@
     CGContextSetInterpolationQuality(context, kCGInterpolationNone);
     CGContextScaleCTM(context, 1.0, -1.0);
     CGContextDrawImage(context, CGContextGetClipBoundingBox(context), cgImage);
+    if (cgImage==nil) {
+        return nil;
+    }
     UIImage *codeImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     CGImageRelease(cgImage);

@@ -120,7 +120,7 @@
 #pragma mark -  界面跳转
 
 -(void)jumpScanVC{
-    FanQRCodeScanViewController *qrCoreVC=[[FanQRCodeScanViewController alloc]initWithQRBlock:^(NSString *resultSrt, BOOL isSuccess) {
+    FanQRCodeScanViewController *qrCoreVC=[[FanQRCodeScanViewController alloc]initWithQRBlock:^(NSString *resultSrt,NSString *type, BOOL isSuccess) {
         if (isSuccess) {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [self fan_showAlertWithTitle:@"扫描结果" message:resultSrt];

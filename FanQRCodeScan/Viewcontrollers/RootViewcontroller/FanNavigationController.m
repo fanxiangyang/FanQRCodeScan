@@ -18,7 +18,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    self.navigationBar.translucent=NO;
+    self.navigationBar.translucent=NO;
+    
+    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"nav_bg.png"] forBarMetrics:UIBarMetricsDefault];
+
+    __weak typeof (self) weakSelf = self;
+    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.interactivePopGestureRecognizer.delegate = weakSelf;
+    }
 
 }
 

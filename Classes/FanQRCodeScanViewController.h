@@ -15,7 +15,7 @@
  @param resultSrt 扫描信息
  @param isSuccess 是否成功
  */
-typedef void(^FanQRCodeScanResultBlock)(NSString* resultSrt,BOOL isSuccess);
+typedef void(^FanQRCodeScanResultBlock)(NSString* resultSrt,NSString *type,BOOL isSuccess);
 
 
 #define iOS_VERSION_QR ([[[UIDevice currentDevice] systemVersion]floatValue])

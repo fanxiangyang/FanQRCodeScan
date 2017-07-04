@@ -6,13 +6,13 @@
 //  Copyright © 2017年 凡向阳. All rights reserved.
 //
 
-#import "RootViewController.h"
+#import "FanRootViewController.h"
 
-@interface RootViewController ()
+@interface FanRootViewController ()
 
 @end
 
-@implementation RootViewController
+@implementation FanRootViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,6 +39,19 @@
     }else{
         NSLog(@"该界面VC没有导航条");
     }
+}
+//返回UIBarButtonItem
+-(UIBarButtonItem *)creatUIBarButtonItemImageName:(NSString *)imageName selector:(SEL)selector{
+    UIButton *btn=[UIButton buttonWithType:UIButtonTypeCustom];
+    //    [btn setTitle:title forState:UIControlStateNormal];
+    //    [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [btn setFrame:CGRectMake(0,0,40,40)];
+    if (imageName) {
+        [btn setBackgroundImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    }
+    [btn addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *item=[[UIBarButtonItem alloc]initWithCustomView:btn];
+    return item;
 }
 
 

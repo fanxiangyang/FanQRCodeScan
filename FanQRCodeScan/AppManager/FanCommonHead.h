@@ -9,6 +9,10 @@
 #ifndef FanCommonHead_h
 #define FanCommonHead_h
 
+#import "FanManager.h"
+#import "FanQRCodeScan.h"
+
+
 #define FanScreenWidth [UIScreen mainScreen].bounds.size.width
 #define FanScreenHeight [UIScreen mainScreen].bounds.size.height
 
@@ -49,6 +53,15 @@
 
 //定义常量宏
 
-
+typedef NS_ENUM(NSInteger,FanQRCodeType) {
+    FanQRCodeTypeWWW=0,
+    FanQRCodeTypeEmail,
+    FanQRCodeTypePhone,
+    FanQRCodeTypeText,
+    FanQRCodeTypeBarCode,//条形码
+    FanQRCodeTypeWChat, //http://weixin.qq.com   wxp://
+    FanQRCodeTypeQQ,    //http://qm.qq.com  https://i.qianbao.qq.com
+    FanQRCodeTypeAlipay  //https://qr.alipay.com
+};
 
 #endif /* FanCommonHead_h */
