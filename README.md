@@ -1,14 +1,19 @@
 # FanQRCodeScan（iOS8+）
-##### 系统自带二维码条形码的扫描和生成 
 
-<img src="https://github.com/fanxiangyang/FanQRCodeScan/blob/master/Document/qrcode.png?raw=true" width="320">       <img src="https://github.com/fanxiangyang/FanQRCodeScan/blob/master/Document/scan.png?raw=true" width="320">
+### App store 上线地址:[韩QRCode](https://itunes.apple.com/cn/app/id1255037808?mt=8)   上线预览图如下：
+<img src="https://github.com/fanxiangyang/FanQRCodeScan/blob/master/Document/appstore3.PNG?raw=true" width="250">       <img src="https://github.com/fanxiangyang/FanQRCodeScan/blob/master/Document/appstore2.PNG?raw=true" width="250">   <img src="https://github.com/fanxiangyang/FanQRCodeScan/blob/master/Document/appstore1.PNG?raw=true" width="250">
+
+
+##### 系统自带二维码条形码的扫描和生成 （旧版UI图）
+
+<img src="https://github.com/fanxiangyang/FanQRCodeScan/blob/master/Document/qrcode.png?raw=true" width="250">       <img src="https://github.com/fanxiangyang/FanQRCodeScan/blob/master/Document/scan.png?raw=true" width="250">
 
 
 ###  功能介绍
 
 ##### 1.二维码条形码扫描 
 ```
-FanQRCodeScanViewController *qrCoreVC=[[FanQRCodeScanViewController alloc]initWithQRBlock:^(NSString *resultSrt, BOOL isSuccess) {
+FanQRCodeScanViewController *qrCoreVC=[[FanQRCodeScanViewController alloc]initWithQRBlock:^(NSString *resultSrt,NSString *type, BOOL isSuccess) {
         if (isSuccess) {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [self fan_showAlertWithTitle:@"扫描结果" message:resultSrt];
@@ -62,6 +67,9 @@ UIImage *image=[FanQRCodeScanViewController fan_qrCodeImageWithText:textField.te
     CGContextSetInterpolationQuality(context, kCGInterpolationNone);
     CGContextScaleCTM(context, 1.0, -1.0);
     CGContextDrawImage(context, CGContextGetClipBoundingBox(context), cgImage);
+    if (cgImage==nil) {
+        return nil;
+    }
     UIImage *codeImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     CGImageRelease(cgImage);
@@ -100,6 +108,9 @@ UIImage *image=[FanQRCodeScanViewController fan_generateBarImageWithCode:textFie
     CGContextSetInterpolationQuality(context, kCGInterpolationNone);
     CGContextScaleCTM(context, 1.0, -1.0);
     CGContextDrawImage(context, CGContextGetClipBoundingBox(context), cgImage);
+    if (cgImage==nil) {
+        return nil;
+    }
     UIImage *codeImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     CGImageRelease(cgImage);
@@ -112,4 +123,5 @@ UIImage *image=[FanQRCodeScanViewController fan_generateBarImageWithCode:textFie
 Like(喜欢)
 ==============
 #### 有问题请直接在文章下面留言,喜欢就给个Star(小星星)吧！ 
+#### 简书博客:[FanQRCodeScan(二维码条形码扫描生成解析)](http://www.jianshu.com/p/760e4654394f)说明更详细
 #### Email:<fqsyfan@gmail.com>
