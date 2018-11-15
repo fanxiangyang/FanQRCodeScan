@@ -73,7 +73,7 @@
     }
     
     UIAlertController *act=[UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    [act addAction:[UIAlertAction actionWithTitle:[NSBundle fan_localizedStringForKey:@"FanQRCodeCancel"] style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    [act addAction:[UIAlertAction actionWithTitle:[NSBundle fan_qrLocalizedStringForKey:@"FanQRCodeCancel"] style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
     }]];
     
     [act addAction:[UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {

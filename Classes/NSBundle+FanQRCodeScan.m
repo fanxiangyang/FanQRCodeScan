@@ -29,13 +29,20 @@
     }
     return image;
 }
-
-+ (NSString *)fan_localizedStringForKey:(NSString *)key
++ (UIImage *)fan_qrClearTinColorImageWithName:(NSString *)imgName
 {
-    return [self fan_localizedStringForKey:key value:nil];
+    UIImage *image = nil;
+    if (image == nil) {
+        image = [UIImage imageWithContentsOfFile:[[self fan_qrCodeScanBundle] pathForResource:imgName ofType:@"png"]];
+    }
+    return image;
+}
++ (NSString *)fan_qrLocalizedStringForKey:(NSString *)key
+{
+    return [self fan_qrLocalizedStringForKey:key value:nil];
 }
 
-+ (NSString *)fan_localizedStringForKey:(NSString *)key value:(NSString *)value
++ (NSString *)fan_qrLocalizedStringForKey:(NSString *)key value:(NSString *)value
 {
     static NSBundle *bundle = nil;
     if (bundle == nil) {

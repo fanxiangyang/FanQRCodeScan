@@ -138,7 +138,7 @@
     }
     
     UIAlertController *act=[UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    [act addAction:[UIAlertAction actionWithTitle:[NSBundle fan_localizedStringForKey:@"FanQRCodeCancel"] style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    [act addAction:[UIAlertAction actionWithTitle:[NSBundle fan_qrLocalizedStringForKey:@"FanQRCodeCancel"] style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
     }]];
   
     [act addAction:[UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -234,7 +234,7 @@
 -(void)fan_showSizeWithTitle:(NSString *)title tag:(NSInteger)tag{
     
     UIAlertController *act=[UIAlertController alertControllerWithTitle:title message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    [act addAction:[UIAlertAction actionWithTitle:[NSBundle fan_localizedStringForKey:@"FanQRCodeCancel"] style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    [act addAction:[UIAlertAction actionWithTitle:[NSBundle fan_qrLocalizedStringForKey:@"FanQRCodeCancel"] style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
     }]];
     
     NSArray *titleArray=@[@"64x64",@"128x128",@"256x256",@"512x512",@"1024x1024"];
@@ -262,7 +262,7 @@
 -(void)fan_showBarSizeWithTitle:(NSString *)title tag:(NSInteger)tag{
     
     UIAlertController *act=[UIAlertController alertControllerWithTitle:title message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    [act addAction:[UIAlertAction actionWithTitle:[NSBundle fan_localizedStringForKey:@"FanQRCodeCancel"] style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    [act addAction:[UIAlertAction actionWithTitle:[NSBundle fan_qrLocalizedStringForKey:@"FanQRCodeCancel"] style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
     }]];
     
     NSArray *titleArray=@[@"64x32",@"128x64",@"256x128",@"512x256",@"1024x512"];
@@ -291,7 +291,7 @@
 -(void)fan_showColorWithTitle:(NSString *)title tag:(NSInteger)tag{
     
     UIAlertController *act=[UIAlertController alertControllerWithTitle:title message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    [act addAction:[UIAlertAction actionWithTitle:[NSBundle fan_localizedStringForKey:@"FanQRCodeCancel"] style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    [act addAction:[UIAlertAction actionWithTitle:[NSBundle fan_qrLocalizedStringForKey:@"FanQRCodeCancel"] style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
     }]];
     
     NSArray *titleArray=@[@"黑色",@"红色",@"蓝色",@"绿色",@"黄色",@"紫色",@"青色",@"棕黄色"];

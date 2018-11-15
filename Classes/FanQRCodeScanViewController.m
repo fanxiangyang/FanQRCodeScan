@@ -22,32 +22,148 @@
 //动画线条
 @property (nonatomic, strong) UIImageView *lineImageView;
 
+@property (nonatomic, assign) CGFloat qrHeight;//默认扫码框的高度
+@property (nonatomic, strong)UIView *blackView;//默认黑覆盖的框
 @end
 
 @implementation FanQRCodeScanViewController
 #pragma mark - 初始化
 -(instancetype)initWithQRBlock:(FanQRCodeScanResultBlock)qrCodeScanResultBlock{
     if (self=[super init]) {
+        _qrHeight=200;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+            _qrHeight=300;
+        }
         self.qrCodeScanResultBlock = qrCodeScanResultBlock;
     }
     return self;
 }
 -(void)dealloc{
     NSLog(@"%s",__func__);
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIDeviceOrientationDidChangeNotification
+                                                  object:nil];
+    [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceOrientationDidChange:) name:UIDeviceOrientationDidChangeNotification object:nil];
+    
+    
+    
     BOOL isOpen = [self openCapture];
     [self configUI];
-
+    
+    
     if (!isOpen) {
         [self fan_stopScan];
     }
 
 }
 
+//设备方向改变
+-(void)deviceOrientationDidChange:(NSObject*)sender{
+    if (self.captureVideoPreviewLayer==nil) {
+        return;
+    }
+    AVCaptureVideoOrientation orientation=0;
+    
+    UIDevice* device = [sender valueForKey:@"object"];
+    switch (device.orientation) {
+        case UIDeviceOrientationUnknown: {
+            orientation=[self.captureVideoPreviewLayer connection].videoOrientation;
+            break;
+        }
+        case UIDeviceOrientationPortrait: {
+            if (self.qrOrientation==FanQRCodeOrientationLandscape) {
+                orientation=[self.captureVideoPreviewLayer connection].videoOrientation;
+            }else{
+                orientation=AVCaptureVideoOrientationPortrait;
+            }
+            break;
+        }
+        case UIDeviceOrientationPortraitUpsideDown: {
+            if (self.qrOrientation==FanQRCodeOrientationLandscape) {
+                orientation=[self.captureVideoPreviewLayer connection].videoOrientation;
+            }else{
+                orientation=AVCaptureVideoOrientationPortraitUpsideDown;
+            }
+            break;
+        }
+        case UIDeviceOrientationLandscapeLeft: {
+            if (self.qrOrientation==FanQRCodeOrientationPortrait) {
+                orientation=[self.captureVideoPreviewLayer connection].videoOrientation;
+            }else{
+                orientation=AVCaptureVideoOrientationLandscapeRight;
+            }
+            break;
+        }
+        case UIDeviceOrientationLandscapeRight: {
+            if (self.qrOrientation==FanQRCodeOrientationPortrait) {
+                orientation=[self.captureVideoPreviewLayer connection].videoOrientation;
+            }else{
+                orientation=AVCaptureVideoOrientationLandscapeLeft;
+            }
+            break;
+        }
+        case UIDeviceOrientationFaceUp: {
+            // 面朝上
+            orientation=[self.captureVideoPreviewLayer connection].videoOrientation;
+            
+            break;
+        }
+        case UIDeviceOrientationFaceDown: {
+            //面朝下
+            orientation=[self.captureVideoPreviewLayer connection].videoOrientation;
+            
+            break;
+        }
+        default:{
+            
+        }
+    }
+    
+    [self.captureVideoPreviewLayer connection].videoOrientation=orientation;
+    
+}
+- (AVCaptureVideoOrientation) videoDeviceOrientation:(UIDeviceOrientation)deviceOrientation {
+    switch (deviceOrientation) {
+        case UIDeviceOrientationUnknown: {
+            break;
+        }
+        case UIDeviceOrientationPortrait: {
+            return AVCaptureVideoOrientationPortrait;
+        }
+        case UIDeviceOrientationPortraitUpsideDown: {
+            return AVCaptureVideoOrientationPortraitUpsideDown;
+        }
+        case UIDeviceOrientationLandscapeLeft: {
+            return AVCaptureVideoOrientationLandscapeRight;
+        }
+        case UIDeviceOrientationLandscapeRight: {
+            return AVCaptureVideoOrientationLandscapeLeft;
+        }
+        case UIDeviceOrientationFaceUp: {
+            // 面朝上
+            break;
+        }
+        case UIDeviceOrientationFaceDown: {
+            //面朝下
+            
+            break;
+        }
+        default:{
+            
+            
+            break;
+        }
+    }
+    return AVCaptureVideoOrientationPortrait;
+}
 #pragma mark - 界面UI（兼容带导航的）
 
 //取消了横屏，原本横屏适配了，但是有时又不起作用，故强制不能横屏
@@ -74,12 +190,27 @@
     if (self.captureVideoPreviewLayer) {
         self.captureVideoPreviewLayer.frame=self.view.bounds;
     }
+    
+    CGRect maskFrame=CGRectMake(kWidth_QR/2.0-_qrHeight/2.0+5, kHeight_QR/2.0-_qrHeight/2.0+5, _qrHeight-10,_qrHeight-10);
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:_blackView.bounds cornerRadius:0];
+    //贝塞尔曲线 画一个圆形(bezierPathByReversingPath)这个属性必须加，不然不会镂空
+    [maskPath appendPath:[[UIBezierPath bezierPathWithRoundedRect:maskFrame cornerRadius:0]bezierPathByReversingPath]];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc]init];
+    //设置图形样子
+    maskLayer.path = maskPath.CGPath;
+    
+    _blackView.layer.mask=maskLayer;
 
 }
 -(void)configUI{
     self.view.backgroundColor=[UIColor whiteColor];
     self.view.autoresizingMask=UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-
+    
+    _blackView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, kWidth_QR, kHeight_QR)];
+    _blackView.backgroundColor=[UIColor colorWithWhite:0 alpha:0.5];
+    [self.view addSubview:_blackView];
+    _blackView.autoresizingMask=UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+    
     //导航条
     UIView *navView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, kWidth_QR, 64)];
     navView.backgroundColor=[UIColor colorWithWhite:0 alpha:0.5];
@@ -98,7 +229,7 @@
     titleLabel.textColor=self.themColor;
     titleLabel.textAlignment=NSTextAlignmentCenter;
     titleLabel.autoresizingMask=UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleWidth;
-    titleLabel.text=[NSBundle fan_localizedStringForKey:@"FanQRCodeScan"];
+    titleLabel.text=[NSBundle fan_qrLocalizedStringForKey:@"FanQRCodeScan"];
     [navView addSubview:titleLabel];
     
     //相册和闪过灯
@@ -108,7 +239,7 @@
     bottomView.autoresizingMask=UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth;
 
     NSArray*unSelectImageNames=@[@"fan_qrcode_photo@2x",@"fan_qrcode_flash@2x"];
-    NSArray *titleArray=@[[NSBundle fan_localizedStringForKey:@"FanQRCodePhotoLibrary"],[NSBundle fan_localizedStringForKey:@"FanQRCodeFlash"]];
+    NSArray *titleArray=@[[NSBundle fan_qrLocalizedStringForKey:@"FanQRCodePhotoLibrary"],[NSBundle fan_qrLocalizedStringForKey:@"FanQRCodeFlash"]];
     CGFloat btn_width = 57;
     CGFloat btn_heigt = 78;
     CGFloat space_width = (kWidth_QR-2*btn_width)/3;
@@ -135,20 +266,22 @@
     }
     
     //中间显示部分
-    UIImageView*bgImageView=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kHeight_QRRect, kHeight_QRRect)];
+    UIImageView*bgImageView=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, _qrHeight, _qrHeight)];
     bgImageView.center=self.view.center;
-    bgImageView.contentMode=UIViewContentModeTop;
+    bgImageView.contentMode=UIViewContentModeScaleAspectFill;
     bgImageView.clipsToBounds=YES;
     
-    bgImageView.image=[NSBundle fan_qrImageWithName:@"fan_qrcode_scan_bg@2x"];
+    bgImageView.image=[NSBundle fan_qrClearTinColorImageWithName:@"fan_qrcode_scan_bg@2x"];
     bgImageView.userInteractionEnabled=YES;
     [self.view addSubview:bgImageView];
     
     bgImageView.autoresizingMask=UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin;
     //上下滚动线条
-    _lineImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kHeight_QRRect, 4)];
-    _lineImageView.image = [NSBundle fan_qrImageWithName:@"fan_qrcode_scan_line@2x"];
+    _lineImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, _qrHeight, 4)];
+    _lineImageView.image = [NSBundle fan_qrClearTinColorImageWithName:@"fan_qrcode_scan_line@2x"];
     if (self.scanColor) {
+        bgImageView.image=[NSBundle fan_qrImageWithName:@"fan_qrcode_scan_bg@2x"];
+        _lineImageView.image = [NSBundle fan_qrImageWithName:@"fan_qrcode_scan_line@2x"];
         bgImageView.tintColor=self.scanColor;
         _lineImageView.tintColor=self.scanColor;
     }
@@ -156,11 +289,11 @@
     
     _lineImageView.autoresizingMask=UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleWidth;
     //加动画,别忘记移除
-    [_lineImageView.layer addAnimation:[self fan_rockWithTime:2.0 fromY:0 toY:kHeight_QRRect repeatCount:INT_MAX] forKey:@"rock.Y"];
+    [_lineImageView.layer addAnimation:[self fan_rockWithTime:2.0 fromY:0 toY:_qrHeight repeatCount:INT_MAX] forKey:@"rock.Y"];
     
-    UILabel * tipLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, bgImageView.frame.origin.y+kHeight_QRRect, kWidth_QR, 30)];
-    tipLabel.text = [NSBundle fan_localizedStringForKey:@"FanQRCodeScanTips"];
-    tipLabel.textColor = self.themColor;
+    UILabel * tipLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, bgImageView.frame.origin.y+_qrHeight, kWidth_QR, 30)];
+    tipLabel.text = [NSBundle fan_qrLocalizedStringForKey:@"FanQRCodeScanTips"];
+    tipLabel.textColor = self.scanTipColor?self.scanTipColor:[UIColor whiteColor];
     tipLabel.textAlignment = NSTextAlignmentCenter;
     tipLabel.lineBreakMode = NSLineBreakByWordWrapping;
     tipLabel.numberOfLines = 2;
@@ -168,10 +301,11 @@
     tipLabel.backgroundColor = [UIColor clearColor];
     [self.view addSubview:tipLabel];
     
-    tipLabel.autoresizingMask=UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleWidth;
+    [self fan_superView:self.view addConstraintsOne:tipLabel dependView:bgImageView edgeInsets:UIEdgeInsetsMake(20, 0, 0, 0) layoutType:1 viewSize:CGSizeMake(kWidth_QR, 30)];
     
     
 }
+
 -(UIColor*)themColor{
     if (_themColor==nil) {
         _themColor=[UIColor whiteColor];
@@ -180,13 +314,13 @@
 }
 /// 开始扫描
 -(void)fan_startScan{
-    [_lineImageView.layer addAnimation:[self fan_rockWithTime:2.0 fromY:0 toY:kHeight_QRRect repeatCount:INT_MAX] forKey:@"rock.Y"];
+    [_lineImageView.layer addAnimation:[self fan_rockWithTime:2.0 fromY:0 toY:_qrHeight repeatCount:INT_MAX] forKey:@"rock.Y"];
     [self.captureSession startRunning];
 }
 ///  暂停扫描
 -(void)fan_stopScan{
     [_lineImageView.layer removeAnimationForKey:@"rock.Y"];
-    _lineImageView.frame=CGRectMake(0, 0, kHeight_QRRect, 4);
+    _lineImageView.frame=CGRectMake(0, 0, _qrHeight, 4);
     [self.captureSession stopRunning];
 }
 /// 移除扫描
@@ -211,7 +345,7 @@
 {
     [self fan_removeScan];
 
-    if (self.navigationController.viewControllers.count>0) {
+    if (self.navigationController.viewControllers.count>1) {
         [self.navigationController popViewControllerAnimated:YES];
         return;
     }
@@ -221,7 +355,7 @@
 -(void)flashLightClick:(UIButton *)btn{
     AVCaptureDevice * device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     if(![device isTorchModeSupported:AVCaptureTorchModeOn]){
-        [self fan_showAlertWithMessage:[NSBundle fan_localizedStringForKey:@"FanQRCodeOpenFlash"]];
+        [self fan_showAlertWithMessage:[NSBundle fan_qrLocalizedStringForKey:@"FanQRCodeOpenFlash"]];
         return;
     }
     if (device.torchMode==AVCaptureTorchModeOff) {
@@ -241,7 +375,7 @@
     AVAuthorizationStatus deviceStatus=[AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
     if (deviceStatus == AVAuthorizationStatusRestricted||deviceStatus==AVAuthorizationStatusDenied) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self fan_showAlertWithMessage:[NSBundle fan_localizedStringForKey:@"FanQRCodeProhibitCameraPermission"]];
+            [self fan_showAlertWithMessage:[NSBundle fan_qrLocalizedStringForKey:@"FanQRCodeProhibitCameraPermission"]];
         });
         return NO;
     }
@@ -285,6 +419,13 @@
     }
     self.captureVideoPreviewLayer.frame=self.view.layer.bounds;
     self.captureVideoPreviewLayer.videoGravity=AVLayerVideoGravityResizeAspectFill;
+    
+    [self.captureVideoPreviewLayer connection].videoOrientation=[self videoDeviceOrientation:[UIDevice currentDevice].orientation];
+
+    AVCaptureConnection *captureConnection=[captureOutput connectionWithMediaType:AVMediaTypeVideo];
+
+    captureConnection.videoOrientation=[self.captureVideoPreviewLayer connection].videoOrientation;
+
     [self.view.layer addSublayer:self.captureVideoPreviewLayer];
     
     //启动扫描
@@ -348,13 +489,13 @@
 #pragma mark 其他内部方法
 
 -(void)fan_showAlertWithMessage:(NSString *)message{
-    [self fan_showAlertWithTitle:[NSBundle fan_localizedStringForKey:@"FanQRCodeWarmTips"] message:message];
+    [self fan_showAlertWithTitle:[NSBundle fan_qrLocalizedStringForKey:@"FanQRCodeWarmTips"] message:message];
 }
 //根据不同的提示信息，创建警告框
 -(void)fan_showAlertWithTitle:(NSString *)title message:(NSString *)message{
     
     UIAlertController *act=[UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    [act addAction:[UIAlertAction actionWithTitle:[NSBundle fan_localizedStringForKey:@"FanQRCodeConfirm"] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [act addAction:[UIAlertAction actionWithTitle:[NSBundle fan_qrLocalizedStringForKey:@"FanQRCodeConfirm"] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
     }]];
 //    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
@@ -369,21 +510,7 @@
     }];
 
 }
-#pragma mark - 上下晃动的动画
--(CABasicAnimation *)fan_rockWithTime:(float)time fromY:(float)fromY toY:(float)toY repeatCount:(int)repeatCount
-{
-    CABasicAnimation *animation=[CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
-    [animation setFromValue:[NSNumber numberWithFloat:fromY]];
-    animation.toValue=[NSNumber numberWithFloat:toY];
-    animation.duration=time;
-    animation.removedOnCompletion=NO;
-    animation.fillMode=kCAFillModeForwards;
-    
-    animation.repeatCount=repeatCount;//动画重复次数
-    animation.autoreverses=YES;//是否自动重复
-    
-    return animation;
-}
+
 #pragma mark - 二维码生成和条形码
 +(UIImage *)fan_qrCodeImageWithText:(NSString *)text size:(CGSize)size{
     return [[self class] fan_qrCodeImageWithText:text size:size color:[UIColor blackColor] bgColor:[UIColor whiteColor]];
@@ -456,6 +583,105 @@
     return codeImage;
 
 }
+#pragma mark - 上下晃动的动画+约束（依赖FanKit里面的方法）
+//https://github.com/fanxiangyang/FanKit
+-(CABasicAnimation *)fan_rockWithTime:(float)time fromY:(float)fromY toY:(float)toY repeatCount:(int)repeatCount
+{
+    CABasicAnimation *animation=[CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
+    [animation setFromValue:[NSNumber numberWithFloat:fromY]];
+    animation.toValue=[NSNumber numberWithFloat:toY];
+    animation.duration=time;
+    animation.removedOnCompletion=NO;
+    animation.fillMode=kCAFillModeForwards;
+    
+    animation.repeatCount=repeatCount;//动画重复次数
+    animation.autoreverses=YES;//是否自动重复
+    
+    return animation;
+}
+/**
+ *  有一个依靠控件的一端固定的约束
+ *
+ *  @param constraintView  约束控件
+ *  @param dependView      依靠控件
+ *  @param edgeInsets      间距
+ *  @param layoutAttribute 类型（只能是1-4，=Top,Bottom,Left,Right）
+ *  @param size            控件大小
+ */
+-(void)fan_superView:(UIView *)superView addConstraintsOne:(id)constraintView dependView:(id)dependView edgeInsets:(UIEdgeInsets)edgeInsets  layoutType:(NSInteger)layoutAttribute viewSize:(CGSize)size{
+    ((UIView *)constraintView).translatesAutoresizingMaskIntoConstraints=NO;
+    NSMutableDictionary* views = [NSDictionaryOfVariableBindings(constraintView) mutableCopy];
+    [views setValue:dependView forKey:@"dependView"];
+    switch (layoutAttribute) {
+        case 1:
+        {
+            [superView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-%f-[constraintView]-%f-|",edgeInsets.left,edgeInsets.right] options:NSLayoutFormatDirectionLeadingToTrailing metrics:nil views:views]];
+            [superView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:[constraintView(%f)]",size.height] options:NSLayoutFormatDirectionLeadingToTrailing metrics:nil views:views]];
+            NSLayoutConstraint *constraint=[NSLayoutConstraint
+                                            constraintWithItem:constraintView
+                                            attribute:NSLayoutAttributeTop
+                                            relatedBy:NSLayoutRelationEqual
+                                            toItem:dependView
+                                            attribute:NSLayoutAttributeBottom
+                                            multiplier:1.0
+                                            constant:edgeInsets.top];
+            //            constraint.priority=UILayoutPriorityDefaultHigh;
+            [superView addConstraint:constraint];
+        }
+            break;
+        case 2:
+        {
+            [superView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:[constraintView(%f)]",size.width] options:NSLayoutFormatDirectionLeadingToTrailing metrics:nil views:views]];
+            [superView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|-%f-[constraintView]-%f-|",edgeInsets.top,edgeInsets.bottom] options:NSLayoutFormatDirectionLeadingToTrailing metrics:nil views:views]];
+            NSLayoutConstraint *constraint=[NSLayoutConstraint
+                                            constraintWithItem:constraintView
+                                            attribute:NSLayoutAttributeLeft
+                                            relatedBy:NSLayoutRelationEqual
+                                            toItem:dependView
+                                            attribute:NSLayoutAttributeRight
+                                            multiplier:1.0
+                                            constant:edgeInsets.left];
+            //            constraint.priority=UILayoutPriorityDefaultHigh;
+            [superView addConstraint:constraint];
+        }
+            break;
+        case 3:
+        {
+            [superView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-%f-[constraintView]-%f-|",edgeInsets.left,edgeInsets.right] options:NSLayoutFormatDirectionLeadingToTrailing metrics:nil views:views]];
+            [superView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:[constraintView(%f)]",size.height] options:NSLayoutFormatDirectionLeadingToTrailing metrics:nil views:views]];
+            NSLayoutConstraint *constraint=[NSLayoutConstraint
+                                            constraintWithItem:constraintView
+                                            attribute:NSLayoutAttributeBottom
+                                            relatedBy:NSLayoutRelationEqual
+                                            toItem:dependView
+                                            attribute:NSLayoutAttributeTop
+                                            multiplier:1.0
+                                            constant:edgeInsets.bottom];//可能用负值，
+            //            constraint.priority=UILayoutPriorityDefaultHigh;
+            [superView addConstraint:constraint];
+        }
+            break;
+        case 4:
+        {
+            [superView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:[constraintView(%f)]",size.width] options:NSLayoutFormatDirectionLeadingToTrailing metrics:nil views:views]];
+            [superView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|-%f-[constraintView]-%f-|",edgeInsets.top,edgeInsets.bottom] options:NSLayoutFormatDirectionLeadingToTrailing metrics:nil views:views]];
+            NSLayoutConstraint *constraint=[NSLayoutConstraint
+                                            constraintWithItem:constraintView
+                                            attribute:NSLayoutAttributeRight
+                                            relatedBy:NSLayoutRelationEqual
+                                            toItem:dependView
+                                            attribute:NSLayoutAttributeLeft
+                                            multiplier:1.0
+                                            constant:edgeInsets.right];//可能是负值
+            //            constraint.priority=UILayoutPriorityDefaultHigh;
+            [superView addConstraint:constraint];
+        }
+            break;
+        default:
+            break;
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

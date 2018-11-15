@@ -135,13 +135,13 @@
         
     }];
     qrCoreVC.themColor=[UIColor yellowColor];
-    qrCoreVC.scanColor=[UIColor greenColor];
+//    qrCoreVC.scanColor=[UIColor greenColor];
     [self presentViewController:qrCoreVC animated:YES completion:nil];
     
 }
 //根据不同的提示信息，创建警告框
 -(void)fan_showAlertWithTitle:(NSString *)title message:(NSString *)message{
-    NSString *confirm=[NSBundle fan_localizedStringForKey:@"FanQRCodeConfirm"];
+    NSString *confirm=[NSBundle fan_qrLocalizedStringForKey:@"FanQRCodeConfirm"];
     if ([message hasPrefix:@"http"]) {
         confirm =@"打开链接";
     }
@@ -159,7 +159,7 @@
         }
         
     }]];
-    [act addAction:[UIAlertAction actionWithTitle:[NSBundle fan_localizedStringForKey:@"FanQRCodeCancel"] style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    [act addAction:[UIAlertAction actionWithTitle:[NSBundle fan_qrLocalizedStringForKey:@"FanQRCodeCancel"] style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
     }]];
     //UIAlertControllerStyleActionSheet状态需要用
@@ -178,7 +178,7 @@
 -(void)fan_showAlertTextWithTitle:(NSString *)title tag:(NSInteger)tag{
     
     UIAlertController *act=[UIAlertController alertControllerWithTitle:title message:@"" preferredStyle:UIAlertControllerStyleAlert];
-    [act addAction:[UIAlertAction actionWithTitle:[NSBundle fan_localizedStringForKey:@"FanQRCodeConfirm"] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [act addAction:[UIAlertAction actionWithTitle:[NSBundle fan_qrLocalizedStringForKey:@"FanQRCodeConfirm"] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         UITextField *textField=act.textFields.firstObject;
         if (textField.text.length>0) {
             UIImage *image;

@@ -12,6 +12,7 @@
 @interface NSBundle (FanQRCodeScan)
 + (instancetype)fan_qrCodeScanBundle;
 + (UIImage *)fan_qrImageWithName:(NSString *)imgName;
-+ (NSString *)fan_localizedStringForKey:(NSString *)key value:(NSString *)value;
-+ (NSString *)fan_localizedStringForKey:(NSString *)key;
++ (UIImage *)fan_qrClearTinColorImageWithName:(NSString *)imgName;
++ (NSString *)fan_qrLocalizedStringForKey:(NSString *)key value:(NSString *)value;
++ (NSString *)fan_qrLocalizedStringForKey:(NSString *)key;
 @end
