@@ -136,7 +136,11 @@
             break;
         }
         case UIDeviceOrientationPortrait: {
-            return AVCaptureVideoOrientationPortrait;
+            if (self.qrOrientation==FanQRCodeOrientationLandscape) {
+                return AVCaptureVideoOrientationLandscapeRight;
+            }else{
+                return AVCaptureVideoOrientationPortrait;
+            }
         }
         case UIDeviceOrientationPortraitUpsideDown: {
             return AVCaptureVideoOrientationPortraitUpsideDown;
