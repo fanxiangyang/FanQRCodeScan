@@ -135,7 +135,20 @@
         
     }];
     qrCoreVC.themColor=[UIColor yellowColor];
-//    qrCoreVC.scanColor=[UIColor greenColor];
+    if (@available(iOS 13.0, *)) {
+        qrCoreVC.themColor=[UIColor colorWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull trait) {
+            if (trait.userInterfaceStyle == UIUserInterfaceStyleDark) {
+                return [UIColor darkGrayColor];
+            } else {
+                return [UIColor yellowColor];
+            }
+        }];
+    } else {
+        // Fallback on earlier versions
+        qrCoreVC.themColor=[UIColor yellowColor];
+    }
+    qrCoreVC.scanTipColor=[UIColor darkGrayColor];
+    qrCoreVC.modalPresentationStyle=UIModalPresentationFullScreen;
     [self presentViewController:qrCoreVC animated:YES completion:nil];
     
 }
@@ -152,7 +165,7 @@
             web.fanQRURL=message;
             web.hidesBottomBarWhenPushed=YES;
             UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:web];
-            
+            nav.modalPresentationStyle=UIModalPresentationFullScreen;
             [self presentViewController:nav animated:YES completion:^{
                 
             }];

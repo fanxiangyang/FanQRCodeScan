@@ -20,9 +20,16 @@
 }
 //根据不同的提示信息，创建警告框
 -(void)fan_showAlertWithTitle:(NSString *)title message:(NSString *)message delegate:(id)fan_delegate tag:(NSInteger)tag{
-    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:title?title:@"温馨提示" message:message delegate:fan_delegate cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-    alert.tag=tag;
-    [alert show];
+    UIAlertController *act=[UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    [act addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+//    [act addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//        
+//    }]];
+    [self presentViewController:act animated:YES completion:^{
+        
+    }];
 }
 - (void)fan_addTitleViewWithTitle:(NSString *)title textColor:(UIColor *)color{
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 40)];

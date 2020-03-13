@@ -17,8 +17,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor=[UIColor whiteColor];
-
+    if (@available(iOS 13.0, *)) {
+        self.view.backgroundColor=[UIColor systemBackgroundColor];
+//        self.view.backgroundColor=[UIColor colorWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull trait) {
+//            if (trait.userInterfaceStyle == UIUserInterfaceStyleDark) {
+//                return [UIColor systemBackgroundColor];
+//            } else {
+//                return [UIColor systemBackgroundColor];
+//            }
+//        }];
+       } else {
+           // Fallback on earlier versions
+           self.view.backgroundColor=[UIColor whiteColor];
+       }
 }
 -(void)addBackgroundImage:(NSString *)imageName{
     UIImageView *imgView=[[UIImageView alloc]initWithFrame:self.view.bounds];

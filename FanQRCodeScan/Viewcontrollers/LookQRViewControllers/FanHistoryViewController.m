@@ -36,9 +36,14 @@
     }
     
     UIBarButtonItem *deleteItem=[[UIBarButtonItem alloc]initWithTitle:@"全部删除" style:UIBarButtonItemStylePlain target:self action:@selector(deleteAll)];
-    deleteItem.tintColor=[UIColor redColor];
+//    deleteItem.tintColor=[UIColor redColor];
     self.navigationItem.rightBarButtonItem=deleteItem;
-    
+    if (@available(iOS 13.0, *)) {
+        deleteItem.tintColor=[UIColor systemRedColor];
+    } else {
+        // Fallback on earlier versions
+        deleteItem.tintColor=[UIColor redColor];
+    }
 }
 -(void)deleteAll{
     [[FanDBManager shareManager]fan_executeUpdateWithSql:@"delete from FanQRCodeModel where insertType = 0" valueInArray:nil];

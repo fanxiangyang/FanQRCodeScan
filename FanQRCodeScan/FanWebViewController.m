@@ -7,6 +7,7 @@
 //
 
 #import "FanWebViewController.h"
+#import <WebKit/WebKit.h>
 
 #define FanScreenWidthRotion [UIScreen mainScreen].bounds.size.width
 #define FanScreenHeightRotion [UIScreen mainScreen].bounds.size.height
@@ -15,13 +16,14 @@
 #define FanScreenHeight (FanScreenWidthRotion>FanScreenHeightRotion?FanScreenHeightRotion:FanScreenWidthRotion)
 
 
-@interface FanWebViewController ()<UIWebViewDelegate>
+@interface FanWebViewController ()<WKNavigationDelegate>
 
+@property(nonatomic,strong)WKWebView *webView;
 @end
 
 @implementation FanWebViewController
 {
-    UIWebView *_webView;
+
 }
 -(void)backBarClick{
     [self dismissViewControllerAnimated:YES completion:^{
@@ -43,38 +45,34 @@
     
     
     self.navigationController.navigationBar.translucent=NO;
-    
-    self.automaticallyAdjustsScrollViewInsets = NO;//对webView有影响
-    
+        
     NSURL *url=[NSURL URLWithString:_fanQRURL];
     NSURLRequest *request=[NSURLRequest requestWithURL:url];
-    _webView=[[UIWebView alloc]initWithFrame:CGRectMake(0, 0, FanScreenWidthRotion, FanScreenHeightRotion)];
-    //_webView.backgroundColor=[UIColor redColor];
-    _webView.delegate=self;
-    //_webView.opaque=NO;
-    _webView.scalesPageToFit=YES;
+    _webView=[[WKWebView alloc]initWithFrame:CGRectMake(0, 0, FanScreenWidthRotion, FanScreenHeightRotion)];
+    _webView.navigationDelegate=self;
+//    _webView.UIDelegate=self;
     [_webView loadRequest:request];
     [self.view addSubview:_webView];
-    
+    _webView.scrollView.contentInsetAdjustmentBehavior=UIScrollViewContentInsetAdjustmentNever;
     _webView.autoresizingMask=UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-//    _webView.autoresizingMask=UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-
-
 }
 //刷新
 -(void)refreshWebView{
     [_webView reload];
 }
-#pragma mark - uiwebview delegate
-//开始加载
--(void)webViewDidStartLoad:(UIWebView *)webView{
+#pragma mark - WKDelegate代理
+-(void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation{
+    //开始加载
 }
--(void)webViewDidFinishLoad:(UIWebView *)webView{
+-(void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation{
 }
--(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
+-(void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
+
+}
+-(void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error{
 }
 -(void)dealloc{
-    _webView.delegate=nil;
+    _webView.navigationDelegate=nil;
     [_webView stopLoading];
     [_webView removeFromSuperview];
 }

@@ -1,4 +1,5 @@
-# FanQRCodeScan（iOS8+）
+# FanQRCodeScan（iOS11+全新暗黑模式）
+为了适配暗黑模式，项目最小支持iOS11.0+，但是核心的扫描二维码和生成二维码还是iOS8+
 
 ### App store 上线地址:[韩QRCode](https://itunes.apple.com/cn/app/id1255037808?mt=8)   上线预览图如下：
 <img src="https://github.com/fanxiangyang/FanQRCodeScan/blob/master/Document/appstore3.PNG?raw=true" width="250">       <img src="https://github.com/fanxiangyang/FanQRCodeScan/blob/master/Document/appstore2.PNG?raw=true" width="250">   <img src="https://github.com/fanxiangyang/FanQRCodeScan/blob/master/Document/appstore1.PNG?raw=true" width="250">

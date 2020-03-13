@@ -26,9 +26,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor=[UIColor colorWithWhite:0.9 alpha:1];
+//    self.view.backgroundColor=[UIColor colorWithWhite:0.9 alpha:1];
     
     self.navigationItem.leftBarButtonItem=[self fan_creatUIBarButtonItemImageName:@"back_iOS.png" frame:CGRectMake(0, 0, 30, 30) selector:@selector(backClick)];
+    
+//    if (@available(iOS 13.0, *)) {
+//        self.contentTextView.backgroundColor=[UIColor colorWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull trait) {
+//            if (trait.userInterfaceStyle == UIUserInterfaceStyleDark) {
+//                return [UIColor colorWithWhite:0.1 alpha:1.0];
+//            } else {
+//                return [UIColor colorWithWhite:0.8 alpha:1.0];
+//            }
+//        }];
+//    } else {
+//        // Fallback on earlier versions
+//        self.contentTextView.backgroundColor=[UIColor darkGrayColor];
+//    }
+    
     [self configUI];
 }
 -(void)configUI{
@@ -369,6 +383,8 @@
         if (image) {
             [self openQRCode:qrCodeStr];
         }
+    }else{
+        [self fan_showAlertWithMessage:@"输入不能为空！" delegate:self];
     }
     
 }

@@ -23,10 +23,9 @@
 		66322B691EE7D357003AE097 /* FanNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66322B681EE7D357003AE097 /* FanNavigationController.m */; };
 		66322B6C1EE7D39F003AE097 /* FanTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66322B6B1EE7D39F003AE097 /* FanTabBarController.m */; };
 		66322B711EE7F972003AE097 /* FanScanLaunch.png in Resources */ = {isa = PBXBuildFile; fileRef = 66322B701EE7F972003AE097 /* FanScanLaunch.png */; };
+		66464CDC2419EC3B00F17AE3 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66464CDB2419EC3B00F17AE3 /* Colors.xcassets */; };
 		665F4F1920B53F3700226C00 /* FanQRCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 665F4F1720B53F3700226C00 /* FanQRCell.m */; };
 		666278941ECD6DA300C04FD3 /* FanWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 666278931ECD6DA300C04FD3 /* FanWebViewController.m */; };
-		66991A741F0268B1003ED34D /* nav_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66991A731F0268B1003ED34D /* nav_bg@2x.png */; };
-		66991A761F026D65003ED34D /* fan_tabbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66991A751F026D65003ED34D /* fan_tabbg@2x.png */; };
 		66991A7A1F0276D7003ED34D /* scan_scan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66991A791F0276D7003ED34D /* scan_scan@2x.png */; };
 		66991A7E1F0277F9003ED34D /* FanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66991A7D1F0277F9003ED34D /* FanTableViewController.m */; };
 		66991A811F027831003ED34D /* FanCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66991A801F027831003ED34D /* FanCreateViewController.m */; };
@@ -48,8 +47,6 @@
 		66991AA11F03469B003ED34D /* fan_txt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66991AA01F03469B003ED34D /* fan_txt@2x.png */; };
 		66991AA31F034B86003ED34D /* fan_tiaoma@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66991AA21F034B86003ED34D /* fan_tiaoma@2x.png */; };
 		66991AA61F0356A2003ED34D /* FanCreateQRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66991AA51F0356A2003ED34D /* FanCreateQRViewController.m */; };
-		66991AA81F03601F003ED34D /* fan_button1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66991AA71F03601F003ED34D /* fan_button1@2x.png */; };
-		66991AAA1F0361C2003ED34D /* fan_button2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66991AA91F0361C2003ED34D /* fan_button2@2x.png */; };
 		66991AAD1F036673003ED34D /* back_iOS@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66991AAB1F036673003ED34D /* back_iOS@2x.png */; };
 		66991AAE1F036673003ED34D /* back_iOS@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66991AAC1F036673003ED34D /* back_iOS@3x.png */; };
 		66991AB11F039C6A003ED34D /* FanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 66991AB01F039C6A003ED34D /* FanManager.m */; };
@@ -125,12 +122,11 @@
 		66322B6B1EE7D39F003AE097 /* FanTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FanTabBarController.m; sourceTree = "<group>"; };
 		66322B6F1EE7EAA0003AE097 /* FanCommonHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FanCommonHead.h; sourceTree = "<group>"; };
 		66322B701EE7F972003AE097 /* FanScanLaunch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FanScanLaunch.png; sourceTree = "<group>"; };
+		66464CDB2419EC3B00F17AE3 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		665F4F1720B53F3700226C00 /* FanQRCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FanQRCell.m; sourceTree = "<group>"; };
 		665F4F1820B53F3700226C00 /* FanQRCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FanQRCell.h; sourceTree = "<group>"; };
 		666278921ECD6DA300C04FD3 /* FanWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FanWebViewController.h; sourceTree = "<group>"; };
 		666278931ECD6DA300C04FD3 /* FanWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FanWebViewController.m; sourceTree = "<group>"; };
-		66991A731F0268B1003ED34D /* nav_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bg@2x.png"; sourceTree = "<group>"; };
-		66991A751F026D65003ED34D /* fan_tabbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fan_tabbg@2x.png"; sourceTree = "<group>"; };
 		66991A791F0276D7003ED34D /* scan_scan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scan_scan@2x.png"; sourceTree = "<group>"; };
 		66991A7C1F0277F9003ED34D /* FanTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FanTableViewController.h; sourceTree = "<group>"; };
 		66991A7D1F0277F9003ED34D /* FanTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FanTableViewController.m; sourceTree = "<group>"; };
@@ -155,8 +151,6 @@
 		66991AA21F034B86003ED34D /* fan_tiaoma@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fan_tiaoma@2x.png"; sourceTree = "<group>"; };
 		66991AA41F0356A2003ED34D /* FanCreateQRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FanCreateQRViewController.h; sourceTree = "<group>"; };
 		66991AA51F0356A2003ED34D /* FanCreateQRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FanCreateQRViewController.m; sourceTree = "<group>"; };
-		66991AA71F03601F003ED34D /* fan_button1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fan_button1@2x.png"; sourceTree = "<group>"; };
-		66991AA91F0361C2003ED34D /* fan_button2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fan_button2@2x.png"; sourceTree = "<group>"; };
 		66991AAB1F036673003ED34D /* back_iOS@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_iOS@2x.png"; sourceTree = "<group>"; };
 		66991AAC1F036673003ED34D /* back_iOS@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_iOS@3x.png"; sourceTree = "<group>"; };
 		66991AAF1F039C6A003ED34D /* FanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FanManager.h; sourceTree = "<group>"; };
@@ -260,6 +254,7 @@
 				666278931ECD6DA300C04FD3 /* FanWebViewController.m */,
 				6620A2971EA49BD200A755B1 /* Main.storyboard */,
 				6620A29A1EA49BD200A755B1 /* Assets.xcassets */,
+				66464CDB2419EC3B00F17AE3 /* Colors.xcassets */,
 				6620A29C1EA49BD200A755B1 /* LaunchScreen.storyboard */,
 				6620A29F1EA49BD200A755B1 /* Info.plist */,
 				6620A28E1EA49BD200A755B1 /* Supporting Files */,
@@ -346,8 +341,6 @@
 				66991AB31F05E6CA003ED34D /* scan_small@2x.png */,
 				66991AAB1F036673003ED34D /* back_iOS@2x.png */,
 				66991AAC1F036673003ED34D /* back_iOS@3x.png */,
-				66991AA91F0361C2003ED34D /* fan_button2@2x.png */,
-				66991AA71F03601F003ED34D /* fan_button1@2x.png */,
 				66991AA21F034B86003ED34D /* fan_tiaoma@2x.png */,
 				66991AA01F03469B003ED34D /* fan_txt@2x.png */,
 				66991A9E1F033EBF003ED34D /* fan_call@2x.png */,
@@ -366,8 +359,6 @@
 				66991A861F0281E0003ED34D /* fan_home@2x.png */,
 				66991A871F0281E0003ED34D /* fan_home@3x.png */,
 				66991A791F0276D7003ED34D /* scan_scan@2x.png */,
-				66991A751F026D65003ED34D /* fan_tabbg@2x.png */,
-				66991A731F0268B1003ED34D /* nav_bg@2x.png */,
 				66322B701EE7F972003AE097 /* FanScanLaunch.png */,
 			);
 			path = images;
@@ -535,7 +526,7 @@
 		6620A2831EA49BD200A755B1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "凡向阳";
 				TargetAttributes = {
 					6620A28A1EA49BD200A755B1 = {
@@ -559,7 +550,7 @@
 			};
 			buildConfigurationList = 6620A2861EA49BD200A755B1 /* Build configuration list for PBXProject "FanQRCodeScan" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -584,14 +575,13 @@
 			files = (
 				66991AB51F05E6CA003ED34D /* scan_small@2x.png in Resources */,
 				66991AEF1F078579003ED34D /* scan_bar@2x.png in Resources */,
-				66991AA81F03601F003ED34D /* fan_button1@2x.png in Resources */,
 				66991A911F028335003ED34D /* fan_create_hui@3x.png in Resources */,
 				66991A8C1F0281E0003ED34D /* fan_home@2x.png in Resources */,
 				66991A881F0281E0003ED34D /* fan_create@2x.png in Resources */,
 				6620A2CD1EA4A4BC00A755B1 /* FanQRCodeScan.bundle in Resources */,
 				66991ADD1F0657B2003ED34D /* scan_default@2x.png in Resources */,
 				66991AA31F034B86003ED34D /* fan_tiaoma@2x.png in Resources */,
-				66991AAA1F0361C2003ED34D /* fan_button2@2x.png in Resources */,
+				66464CDC2419EC3B00F17AE3 /* Colors.xcassets in Resources */,
 				66991AEE1F078579003ED34D /* scan_wChat@2x.png in Resources */,
 				66991A8B1F0281E0003ED34D /* fan_history@3x.png in Resources */,
 				66991A9B1F028EA2003ED34D /* fan_www@2x.png in Resources */,
@@ -601,7 +591,6 @@
 				66991A9F1F033EBF003ED34D /* fan_call@2x.png in Resources */,
 				66991AF41F0791BD003ED34D /* scan_qq@2x.png in Resources */,
 				66991A991F028424003ED34D /* fan_home_hui@3x.png in Resources */,
-				66991A761F026D65003ED34D /* fan_tabbg@2x.png in Resources */,
 				66991AF21F078AC8003ED34D /* scan_github@2x.png in Resources */,
 				66991AAD1F036673003ED34D /* back_iOS@2x.png in Resources */,
 				66991A8D1F0281E0003ED34D /* fan_home@3x.png in Resources */,
@@ -609,7 +598,6 @@
 				66991A981F028424003ED34D /* fan_home_hui@2x.png in Resources */,
 				66991A8A1F0281E0003ED34D /* fan_history@2x.png in Resources */,
 				6620A29B1EA49BD200A755B1 /* Assets.xcassets in Resources */,
-				66991A741F0268B1003ED34D /* nav_bg@2x.png in Resources */,
 				6620A2991EA49BD200A755B1 /* Main.storyboard in Resources */,
 				66991A9D1F028FBB003ED34D /* fan_email@2x.png in Resources */,
 				66991A891F0281E0003ED34D /* fan_create@3x.png in Resources */,
@@ -727,6 +715,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -784,6 +773,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -837,8 +827,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NW3X9NZ9UP;
 				INFOPLIST_FILE = FanQRCodeScan/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fan.FanQRCodeScan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -850,8 +841,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NW3X9NZ9UP;
 				INFOPLIST_FILE = FanQRCodeScan/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fan.FanQRCodeScan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (atomic, retain, nullable) FMStatement *statement;
 
 ///------------------------------------
-/// @name Creating and closing database
+/// @name Creating and closing a result set
 ///------------------------------------
 
 /** Create result set from `<FMStatement>`
@@ -89,7 +89,7 @@ NS_ASSUME_NONNULL_BEGIN
  @see hasAnotherRow
  */
 
-- (BOOL)nextWithError:(NSError * _Nullable *)outErr;
+- (BOOL)nextWithError:(NSError * _Nullable __autoreleasing *)outErr;
 
 /** Did the last call to `<next>` succeed in retrieving another row?
 

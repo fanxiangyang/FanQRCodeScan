@@ -25,6 +25,20 @@
     
     UIBarButtonItem *scanItem=[self fan_creatUIBarButtonItemImageName:@"scan_scan.png" frame:CGRectMake(0, 0, 29, 27) selector:@selector(scanClick)];
     self.navigationItem.rightBarButtonItem=scanItem;
+    
+    if (@available(iOS 13.0, *)) {
+        self.view.backgroundColor=[UIColor colorWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull trait) {
+            if (trait.userInterfaceStyle == UIUserInterfaceStyleDark) {
+                return [UIColor systemGroupedBackgroundColor];
+            } else {
+                return [UIColor systemGroupedBackgroundColor];
+            }
+        }];
+    } else {
+        // Fallback on earlier versions
+        self.view.backgroundColor=[UIColor whiteColor];
+    }
+    
 }
 -(void)scanClick{
     [self jumpScanVC];
@@ -48,8 +62,21 @@
         
     }];
     qrCoreVC.qrOrientation=FanQRCodeOrientationAll;
-    qrCoreVC.themColor=[UIColor yellowColor];
-//    qrCoreVC.scanColor=[UIColor greenColor];
+//    qrCoreVC.themColor=[UIColor yellowColor];
+    if (@available(iOS 13.0, *)) {
+        qrCoreVC.themColor=[UIColor colorWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull trait) {
+            if (trait.userInterfaceStyle == UIUserInterfaceStyleDark) {
+                return [UIColor darkGrayColor];
+            } else {
+                return [UIColor yellowColor];
+            }
+        }];
+    } else {
+        // Fallback on earlier versions
+        qrCoreVC.themColor=[UIColor yellowColor];
+    }
+    qrCoreVC.scanTipColor=[UIColor darkGrayColor];
+    qrCoreVC.modalPresentationStyle=UIModalPresentationFullScreen;
     [self presentViewController:qrCoreVC animated:YES completion:nil];
     
 }
@@ -152,7 +179,7 @@
                 web.fanQRURL=message;
                 web.hidesBottomBarWhenPushed=YES;
                 UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:web];
-                
+                nav.modalPresentationStyle=UIModalPresentationFullScreen;
                 [self presentViewController:nav animated:YES completion:^{
                     
                 }];

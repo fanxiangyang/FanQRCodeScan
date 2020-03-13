@@ -29,12 +29,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor=[UIColor whiteColor];
+//    self.view.backgroundColor=[UIColor whiteColor];
     self.navigationItem.leftBarButtonItem=[self fan_creatUIBarButtonItemImageName:@"back_iOS.png" frame:CGRectMake(0, 0, 30, 30) selector:@selector(backClick)];
-    
-    
+//    self.navigationController.navigationBar.hidden=YES;
+    CGFloat navHeight=self.navigationController.navigationBar.frame.size.height+20;
     // Do any additional setup after loading the view.
-    self.touchImageView=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    NSLog(@"%f,%f",self.view.frame.size.width,self.view.frame.size.height);
+    self.touchImageView=[[UIImageView alloc]initWithFrame:CGRectMake(0, navHeight, self.view.frame.size.width, self.view.frame.size.height-navHeight)];
     self.touchImageView.userInteractionEnabled=YES;
     self.touchImageView.contentMode=UIViewContentModeScaleAspectFit;
     //    self.touchImageView.clipsToBounds=YES;
@@ -55,7 +56,7 @@
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(moreClick)];
     
     
-    self.ipadView=[[UIView alloc]initWithFrame:CGRectMake(FanScreenWidth-50, -44, 44, 44)];
+    self.ipadView=[[UIView alloc]initWithFrame:CGRectMake(FanScreenWidth-50, 0, 44, 44)];
 //    self.ipadView.backgroundColor=[UIColor redColor];
     [self.view addSubview:self.ipadView];
     
@@ -154,14 +155,15 @@
 }
 
 -(NSArray<id<UIPreviewActionItem>>*)previewActionItems{
+    __weak typeof(self)weakSelf=self;
     UIPreviewAction *shareAction=[UIPreviewAction actionWithTitle:@"分享" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
-        if (_delegate&&[_delegate respondsToSelector:@selector(qrPreePopView:)]) {
-            [_delegate qrPreePopView:0];
+        if (weakSelf.delegate&&[weakSelf.delegate respondsToSelector:@selector(qrPreePopView:)]) {
+            [weakSelf.delegate qrPreePopView:0];
         }
     }];
     UIPreviewAction *shareAction1=[UIPreviewAction actionWithTitle:@"分享图片" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
-        if (_delegate&&[_delegate respondsToSelector:@selector(preePopView:)]) {
-            [_delegate qrPreePopView:1];
+        if (weakSelf.delegate&&[weakSelf.delegate respondsToSelector:@selector(preePopView:)]) {
+            [weakSelf.delegate qrPreePopView:1];
         }
     }];
     
