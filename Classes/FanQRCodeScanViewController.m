@@ -65,7 +65,7 @@
 
 }
 
-//设备方向改变
+//设备方向改变(系统锁定方向后，不执行此改变)
 -(void)deviceOrientationDidChange:(NSObject*)sender{
     if (self.captureVideoPreviewLayer==nil) {
         return;
@@ -130,43 +130,43 @@
     [self.captureVideoPreviewLayer connection].videoOrientation=orientation;
     
 }
-- (AVCaptureVideoOrientation) videoDeviceOrientation:(UIDeviceOrientation)deviceOrientation {
-    switch (deviceOrientation) {
-        case UIDeviceOrientationUnknown: {
+//用设备方向没有解决当用户锁定屏幕时解决方案
+-(AVCaptureVideoOrientation)viewStatusBrarOrientation{
+    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    switch (orientation) {
+        case UIInterfaceOrientationUnknown:
+        {
+            
+        }
             break;
+        case UIInterfaceOrientationPortrait:
+        {
+            return AVCaptureVideoOrientationPortrait;
         }
-        case UIDeviceOrientationPortrait: {
-            if (self.qrOrientation==FanQRCodeOrientationLandscape) {
-                return AVCaptureVideoOrientationLandscapeRight;
-            }else{
-                return AVCaptureVideoOrientationPortrait;
-            }
-        }
-        case UIDeviceOrientationPortraitUpsideDown: {
+            break;
+        case UIInterfaceOrientationPortraitUpsideDown:
+        {
             return AVCaptureVideoOrientationPortraitUpsideDown;
         }
-        case UIDeviceOrientationLandscapeLeft: {
-            return AVCaptureVideoOrientationLandscapeRight;
-        }
-        case UIDeviceOrientationLandscapeRight: {
+            break;
+        case UIInterfaceOrientationLandscapeLeft:
+        {
             return AVCaptureVideoOrientationLandscapeLeft;
         }
-        case UIDeviceOrientationFaceUp: {
-            // 面朝上
             break;
+        case UIInterfaceOrientationLandscapeRight:
+        {
+            return AVCaptureVideoOrientationLandscapeRight;
         }
-        case UIDeviceOrientationFaceDown: {
-            //面朝下
-            
             break;
-        }
-        default:{
-            
-            
+        default:
             break;
-        }
     }
-    return AVCaptureVideoOrientationPortrait;
+    if (self.qrOrientation==FanQRCodeOrientationLandscape) {
+        return AVCaptureVideoOrientationLandscapeRight;
+    }else{
+        return AVCaptureVideoOrientationPortrait;
+    }
 }
 #pragma mark - 界面UI（兼容带导航的）
 
@@ -424,7 +424,7 @@
     self.captureVideoPreviewLayer.frame=self.view.layer.bounds;
     self.captureVideoPreviewLayer.videoGravity=AVLayerVideoGravityResizeAspectFill;
     
-    [self.captureVideoPreviewLayer connection].videoOrientation=[self videoDeviceOrientation:[UIDevice currentDevice].orientation];
+    [self.captureVideoPreviewLayer connection].videoOrientation=[self viewStatusBrarOrientation];
 
     AVCaptureConnection *captureConnection=[captureOutput connectionWithMediaType:AVMediaTypeVideo];
 
